@@ -21,8 +21,6 @@ $output = [ "message" => "unsupported action", "status" => 404 ];
 
 if ($action === "get") {
     $field = false;
-    $available_args = ['id', 'name', 'email'];
-    
     if (isset($_GET["id"])) {
         $field = $_GET["id"];
     }
@@ -55,7 +53,7 @@ if ($action === "get") {
 else if ($action === "insert") {
     if (!isset($_POST["name"]) || !isset($_POST["email"]) || !isset($_POST["password"])) {
         $output["message"] = "Must inform all fields";
-        $output["status"] = 400;
+        $output["status"] = 404;
     }
     else {
         $sql = "INSERT INTO users (name,email,password) VALUES (:name,:email,:password)";
@@ -77,7 +75,7 @@ else if ($action === "update") {
     parse_str(file_get_contents("php://input"), $data);
     
     $output["message"] = "Must inform user id";
-    $output["status"] = 400;
+    $output["status"] = 404;
     if (isset($data["id"])) {
         $id = $data["id"];
         unset($data["id"]);
@@ -96,7 +94,7 @@ else if ($action === "delete") {
     parse_str(file_get_contents("php://input"), $data);
 
     $output["message"] = "Must inform user id";
-    $output["status"] = 400;
+    $output["status"] = 404;
     if (isset($data["id"])) {
         $sql = "DELETE FROM users WHERE id = ?";
         $query = $conn->prepare($sql);
