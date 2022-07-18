@@ -3,23 +3,9 @@
 require "connection.php";
 
 $method = $_SERVER['REQUEST_METHOD'];
-
-if ($method == "GET") {
-    $action = "get";
-}
-else if ($method == "POST") {
-    $action = "insert";
-}
-else if ($method == "PUT") {
-    $action = "update";
-}
-else if ($method == "DELETE") {
-    $action = "delete";
-}
-
 $output = [ "message" => "unsupported action", "status" => 404 ];
 
-if ($action === "get") {
+if ($method == "GET") {
     $field = false;
     if (isset($_GET["id"])) {
         $field = $_GET["id"];
@@ -50,7 +36,7 @@ if ($action === "get") {
     $output["status"] = 200;
     $output["message"] = "OK";
 }
-else if ($action === "insert") {
+else if ($method == "POST") {
     if (!isset($_POST["name"]) || !isset($_POST["email"]) || !isset($_POST["password"])) {
         $output["message"] = "Must inform all fields";
         $output["status"] = 404;
@@ -70,7 +56,7 @@ else if ($action === "insert") {
         $output["result"] = $user;
     }
 }
-else if ($action === "update") {
+else if ($method == "PUT") {
     // get input from put method
     parse_str(file_get_contents("php://input"), $data);
     
@@ -90,7 +76,7 @@ else if ($action === "update") {
         $output["result"]["user"] = $id;
     }
 }
-else if ($action === "delete") {
+else if ($method == "DELETE") {
     parse_str(file_get_contents("php://input"), $data);
 
     $output["message"] = "Must inform user id";
