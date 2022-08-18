@@ -16,6 +16,8 @@ systemctl enable docker
   * `-f`: force
 * `docker rmi`: remove imagem
 * `docker build`: cria imagem
+* `docker exec`: executa comando dentro de container rodando
+* `docker cp`: copia arquivo para container rodando
 
 
 # docker run
@@ -67,10 +69,16 @@ docker push docker.io/pswerlang/node-rest-api
 
 # Mysq-server container
 
-Run mysql server on port 3310
+Run mysql server container
 
 ```
-docker run -d -p 3310:3306 --name mysql -e MYSQL_ROOT_PASSWORD=asdf1234 mysql:5.7
+docker run -d --name mysql -e MYSQL_ROOT_PASSWORD=asdf1234 mysql:5.7
+```
+
+Copy database script to running container
+
+```
+docker cp database.sql mysql:/database.sql
 ```
 
 Enter container executing mysql cli
