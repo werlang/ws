@@ -1,0 +1,8 @@
+{
+    "mysql": {
+        "user": "root",
+        "host": "mysql",
+        "database": "aula_ws",
+        "password": "asdf1234"
+    }
+}
