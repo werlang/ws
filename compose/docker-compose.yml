@@ -1,0 +1,99 @@
+version: '3'
+services:
+    mysql:
+        image: aula-ws-mysql
+        build:
+            context: ./mysql
+            dockerfile: Dockerfile
+        restart: always
+        env_file:
+            - .env
+        environment:
+            - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+            - MYSQL_DATABASE=${MYSQL_DATABASE}
+        volumes:
+            - mysql:/var/lib/mysql
+            - ./mysql:/app
+        networks:
+            - wsnetwork
+        ports:
+            - 127.0.0.1:3306:3306
+    web:
+        image: aula-ws-web
+        build:
+            context: ./web
+            dockerfile: Dockerfile
+        volumes:
+            - ./web:/app
+            - node_modules-web:/app/node_modules
+        restart: always
+        env_file:
+            - .env
+        networks:
+            - wsnetwork
+        depends_on:
+            - mysql
+        command: npm start
+    api:
+        image: aula-ws-api
+        build:
+            context: ./api
+            dockerfile: Dockerfile
+        volumes:
+            - ./api:/app
+            - node_modules-api:/app/node_modules
+        restart: always
+        env_file:
+            - .env
+        networks:
+            - wsnetwork
+        depends_on:
+            - mysql
+        command: npm start
+    redis:
+        image: redis:bullseye
+        volumes:
+            - redis:/data
+        networks:
+            - wsnetwork
+        restart: always
+    background:
+        image: aula-ws-background
+        build:
+            context: ./background
+            dockerfile: Dockerfile
+        volumes:
+            - ./background:/app
+            - node_modules-background:/app/node_modules
+        restart: always
+        env_file:
+            - .env
+        networks:
+            - wsnetwork
+        depends_on:
+            - redis
+        command: npm start
+    nginx:
+        image: valian/docker-nginx-auto-ssl
+        ports:
+            - "80:80"
+            - "443:443"
+        volumes:
+            - ./nginx:/etc/nginx/conf.d
+        environment:
+            - SITES=${URL}=web:3000;api.${URL}=api:3000
+        depends_on:
+            - web
+            - api
+        networks:
+            - wsnetwork
+volumes:
+    node_modules-web:
+    node_modules-api:
+    node_modules-background:
+    mysql:
+    redis:
+networks:
+    wsnetwork:
+        # external: true
+        name: wsnetwork

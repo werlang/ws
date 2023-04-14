@@ -1,0 +1,14 @@
+{
+    "name": "aula-ws-web",
+    "version": "1.0.0",
+    "description": "Serviço Web: Exemplo de aula de Web Services",
+    "scripts": {
+        "start": "node app.js"
+    },
+    "author": "Pablo Werlang",
+    "license": "GPL3",
+    "dependencies": {
+        "express": "^4.17.1"
+    }
+}
+    

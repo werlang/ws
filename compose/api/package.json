@@ -1,0 +1,17 @@
+{
+    "name": "aula-ws-api",
+    "version": "1.0.0",
+    "description": "Serviço API: Exemplo de aula de Web Services",
+    "scripts": {
+        "start": "node app.js"
+    },
+    "author": "Pablo Werlang",
+    "license": "GPL3",
+    "dependencies": {
+        "express": "^4.17.1",
+        "redis": "^4.6.5",
+        "cors": "^2.8.5",
+        "mysql2": "^3.2.1"
+    }
+}
+    

@@ -1,0 +1,27 @@
+version: '3'
+services:
+    web:
+        image: aula-ws-web
+        build:
+            context: ./web
+            dockerfile: Dockerfile
+        volumes:
+            - ./web:/app
+            - node_modules:/app/node_modules
+        ports:
+            - "3000:3000"
+        command: npm start
+    api:
+        image: aula-ws-api
+        build:
+            context: ./api
+            dockerfile: Dockerfile
+        volumes:
+            - ./api:/app
+            - node_modules:/app/node_modules
+        ports:
+            - "3001:3000"
+        command: npm start
+volumes:
+    node_modules:
+    mysql:
