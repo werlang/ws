@@ -34,6 +34,10 @@ Este serviço possui as seguintes rotas:
     ```
 - `GET /user/:name` - Retorna o usuário com o nome especificado na URL. Exemplo: `/user/João`
 
+Para testar as rotas, você pode usar o Postman. Clique no botão abaixo para importar a coleção de requisições:
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/24915096-83ba0881-9d92-489a-bafe-0e9c5f5b5e27?action=collection%2Ffork&collection-url=entityId%3D24915096-83ba0881-9d92-489a-bafe-0e9c5f5b5e27%26entityType%3Dcollection%26workspaceId%3Dd4280696-5762-4d7a-920c-92c23c69e4bc)
+
 ## Serviço MySQL
 
 Serviço de banco de dados MySQL. Ao criar a imagem, o banco de dados `aulaws` é criado e a tabela `user` é criada com a seguinte estrutura:
