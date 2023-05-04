@@ -3,7 +3,8 @@
     "version": "1.0.0",
     "description": "Serviço API: Exemplo de aula de Web Services",
     "scripts": {
-        "start": "node app.js"
+        "start": "node app1.js",
+        "basic-api": "node app0.js"
     },
     "author": "Pablo Werlang",
     "license": "GPL3",

@@ -46,7 +46,7 @@ services:
             dockerfile: Dockerfile # nome do Dockerfile
         volumes: # volumes que serão mapeados
             - ./web:/app # mapeia o diretório ./web para dentro do container no diretório /app
-            - node_modules:/app/node_modules # mapeia o volume node_modules para dentro do container no diretório /app/node_modules
+            - node_modules-web:/app/node_modules # mapeia o volume node_modules para dentro do container no diretório /app/node_modules
         ports: # portas que serão expostas
             - "3000:3000" # expõe a porta 3000 do container para a porta 3000 do host
         command: npm start # comando que será executado ao iniciar o container
@@ -57,7 +57,7 @@ services:
             dockerfile: Dockerfile
         volumes:
             - ./api:/app
-            - node_modules:/app/node_modules
+            - node_modules-api:/app/node_modules
         ports:
             - "3001:3000" # expõe a porta 3000 do container para a porta 3001 do host
         command: npm start

@@ -35,10 +35,20 @@ app.get('/user/:name', async (req, res) => {
     res.send({ message: rows || [] });
 });
 
+app.post('/pinda', async (req, res) => {
+    res.send({ message: `eita` });
+});
+
 // get counter value
 app.get('/counter', async (req, res) => {
     const value = await redisClient.get('counter');
     res.send({ message: value });
+});
+
+
+// 404
+app.use((req, res, next) => {
+    res.status(404).send({ message: 'Not found' });
 });
 
 

@@ -7,7 +7,7 @@ services:
             dockerfile: Dockerfile
         volumes:
             - ./web:/app
-            - node_modules:/app/node_modules
+            - node_modules-web:/app/node_modules
         ports:
             - "3000:3000"
         command: npm start
@@ -18,10 +18,10 @@ services:
             dockerfile: Dockerfile
         volumes:
             - ./api:/app
-            - node_modules:/app/node_modules
+            - node_modules-api:/app/node_modules
         ports:
             - "3001:3000"
-        command: npm start
+        command: npm run basic-api
 volumes:
-    node_modules:
-    mysql:
+    node_modules-api:
+    node_modules-web:
