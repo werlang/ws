@@ -65,5 +65,5 @@ O valor do contador pode ser obtido através da rota `GET /counter` do serviço 
 ## Para derrubar os containers:
 
 ```bash
-docker compose -f docker-compose-basic.yml down
+docker compose -f docker-compose.yml down
 ```
