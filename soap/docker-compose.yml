@@ -1,0 +1,21 @@
+version: '3'
+services:
+    node:
+        image: aula-ws-soap-node
+        build: ./node
+        volumes:
+            - ./node:/app
+            - node_modules-api-soap:/app/node_modules
+        ports:
+            - "80:3000"
+        command: npm start
+        # command: tail -f /dev/null # run idle
+    php:
+        image: aul-ws-soap-php
+        build: ./php
+        volumes:
+            - ./php:/var/www/html
+        ports:
+            - '80:80'
+volumes:
+    node_modules-api-soap:

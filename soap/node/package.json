@@ -1,0 +1,14 @@
+{
+    "name": "aula-ws-soap",
+    "version": "1.0.0",
+    "description": "Serviço API SOAP: Exemplo de aula de Web Services",
+    "scripts": {
+        "start": "node app.js"
+    },
+    "author": "Pablo Werlang",
+    "license": "GPL3",
+    "dependencies": {
+        "express": "^4.18.2",
+        "soap": "^1.0.0"
+    }
+}
