@@ -1,0 +1,136 @@
+body {
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    font-size: 16px;
+    font-family: sans-serif;
+}
+
+#frame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    flex: 1;
+    background-color: rgb(238, 237, 225);
+}
+
+#menu {
+    background-color: rgb(70, 70, 84);
+    width: 250px;
+    color: white;
+}
+
+#menu #logo {
+    font-size: 2rem;
+    padding: 15px 0 5px;
+    text-align: center;
+    font-weight: bold;
+    background-color: rgba(0,0,0,0.2);
+}
+
+#menu #sub-logo {
+    font-size: 1rem;
+    padding: 0 0 15px;
+    text-align: center;
+    font-weight: bold;
+    background-color: rgba(0,0,0,0.2);
+}
+
+#menu #sub-logo a {
+    color: rgb(159, 198, 216);
+    text-decoration: none;
+}
+
+#menu .item {
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: 0.3s all;
+    text-transform: uppercase;
+}
+
+#menu .item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#menu .item.active {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.box {
+    display: none;
+    flex-direction: column;
+    max-width: 600px;
+    min-width: 200px;
+    font-family: sans-serif;
+    background-color: rgb(70, 70, 84);
+    color: white;
+    padding: 15px 35px;
+    border-radius: 5px;
+}
+
+.box.active {
+    display: flex;
+}
+
+span {
+    margin-bottom: 5px;
+}
+
+input, select {
+    margin-bottom: 10px;
+    outline: none;
+    box-sizing: border-box;
+    padding: 5px 15px;
+    border-radius: 3px;
+}
+
+#button-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+button {
+    margin: 15px 5px;
+    height: 35px;
+    outline: none;
+    background-color: rgb(105, 150, 201);
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.3rem;
+    transition: 0.3s all;
+    cursor: pointer;
+    flex: 1;
+    color: rgb(6, 48, 68);
+}
+
+button:hover {
+    filter: brightness(1.2);
+}
+
+button:active {
+    filter: brightness(0.8);
+}
+
+#list div {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+}
+
+#get-all.box #list div {
+    grid-template-columns: 0.6fr 1.2fr 2fr;
+}
+
+/* even */
+#list div:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#list span {
+    display: block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow-x: hidden;
+}
