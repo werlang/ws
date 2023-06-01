@@ -1,0 +1,16 @@
+{
+    "name": "aula-ws-web",
+    "version": "1.0.0",
+    "description": "Serviço Web: Exemplo de aula de Web Services",
+    "scripts": {
+        "start": "if [ \"$NODE_ENV\" = \"production\" ]; then node app.js; else nodemon app.js; fi"
+    },
+    "author": "Pablo Werlang",
+    "license": "GPL3",
+    "dependencies": {
+        "express": "^4.17.1",
+        "mustache-express": "^1.3.2",
+        "node-fetch": "2.6.7",
+        "nodemon": "^2.0.20"
+    }
+}

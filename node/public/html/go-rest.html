@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo WS</title>
+    <script type="module" src="js/go-rest.js" async></script>
+    <link rel="stylesheet" href="css/go-rest.css">
+</head>
+
+<body>
+    <div id="menu">
+        <div id="logo">Aula WS</div>
+        <div id="sub-logo"><a href="https://gorest.co.in/" target="_blank">Go REST API</a></div>
+        <div id="get-all" class="item">Listar Usuários</div>
+        <div id="get" class="item">Buscar Usuário</div>
+        <div id="register" class="item">Cadastro de Usuário</div>
+        <div id="edit" class="item">Editar Usuário</div>
+        <div id="remove" class="item">Remover Usuário</div>
+    </div>
+    <div id="frame">
+
+        <div id="get-all" class="box">
+            <h2>Listar Usuários</h2>
+            <div id="button-container">
+                <button id="get">LISTAR</button>
+            </div>
+            <div id="list"></div>
+        </div>
+
+        <div id="get" class="box">
+            <h2>Buscar Usuário</h2>
+            <span>ID</span>
+            <input id="id">
+            <div id="button-container">
+                <button id="get">BUSCAR</button>
+            </div>
+            <div id="list"></div>
+        </div>
+
+        <div id="register" class="box">
+            <h2>Cadastro de usuário</h2>
+            <span>Nome</span>
+            <input id="name">
+            <span>E-mail</span>
+            <input type="email" id="email">
+            <span>Gênero</span>
+            <select id="gender">
+                <option value="male" selected>Masculino</option>
+                <option value="female">Feminino</option>
+            </select>
+            <div id="button-container">
+                <button id="insert">INSERIR</button>
+            </div>
+            <div id="list"></div>
+        </div>
+
+        <div id="edit" class="box">
+            <h2>Editar de usuário</h2>
+            <span>ID</span>
+            <input id="id">
+            <span>Nome</span>
+            <input id="name">
+            <span>E-mail</span>
+            <input type="email" id="email">
+            <span>Gênero</span>
+            <div id="button-container">
+                <button id="btn-edit">EDITAR</button>
+            </div>
+            <div id="list"></div>
+        </div>
+
+        <div id="remove" class="box">
+            <h2>Remover Usuário</h2>
+            <span>ID</span>
+            <input id="id">
+            <div id="button-container">
+                <button id="get">REMOVER</button>
+            </div>
+            <div id="list"></div>
+        </div>
+    </div>
+</body>
+
+</html>
