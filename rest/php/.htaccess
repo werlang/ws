@@ -1,0 +1,12 @@
+# <Limit GET POST PUT OPTIONS DELETE PATCH HEAD>
+#     Require all granted
+# </Limit>
+# <LimitExcept GET POST PUT OPTIONS DELETE PATCH HEAD>
+#     Require all denied
+# </LimitExcept>
+
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.+)$ index.php [QSA,L]
