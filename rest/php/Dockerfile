@@ -6,5 +6,6 @@ RUN a2enmod rewrite
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 COPY ./php.ini /usr/local/etc/php
 WORKDIR /var/www/html
+COPY ./composer.json .
 RUN composer update
 EXPOSE 80

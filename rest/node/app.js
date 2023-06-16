@@ -65,7 +65,7 @@ app.post('/login', async (req, res) => {
     
         const token = jwt.sign({
             id: user.id,
-        }, secretKey, { expiresIn: '5s' });
+        }, secretKey, { expiresIn: '1h' });
         
         res.send({
             message: 'User logged in',
@@ -158,10 +158,12 @@ app.get('/users/search/:field', async (req, res) => {
 
     if (!['name', 'email'].includes(field)) {
         res.status(400).send({ error: 'Invalid field' });
+        return;
     }
 
     if (!req.query.value) {
         res.status(400).send({ error: 'Missing value' });
+        return;
     }
 
     const value = req.query.value;
